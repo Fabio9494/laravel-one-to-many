@@ -14,6 +14,7 @@
                     <thead class="">
                         <tr>
                             <th>TITOLO</th>
+                            <th>TIPO</th>
                             <th>DATA</th>
                             <th>DESCRIZIONE</th>
                             <th>AUTORE</th>
@@ -27,6 +28,7 @@
                         @foreach ($projects as $project)
                             <tr>
                                 <td>{{ $project['title'] }}</td>
+                                <td>{{ $project['type'] != null ? $project['type']['name'] : 'nessun tipo' }}</td>
                                 <td>{{ date('d/m/Y', strtotime($project['date'])) }}</td>
                                 <td>{{ $project['description'] }}</td>
                                 <td>{{ $project['author'] }}</td>
