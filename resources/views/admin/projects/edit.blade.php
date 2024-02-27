@@ -71,6 +71,21 @@
                             <p class="text-danger fw-bold">{{ $message }}</p>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <label for="type_id">Selziona tipo</label>
+                        <select name="type_id" id="type_id" class="form-select @error('type_id') is-invalid @enderror"
+                            required>
+                            <option value="">Seleziona tipo</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" @selected($type->id == old('type_id', $project->type ? $project->type->id : ''))>{{ $type->name }}
+                                </option>
+                            @endforeach
+                            @error('type_id')
+                                <p class="text-danger fw-bold">{{ $message }}</p>
+                            @enderror
+                        </select>
+                    </div>
                     <div>
                         <button type="submit" class="btn btn-primary my-3">SALVA</button>
                     </div>
